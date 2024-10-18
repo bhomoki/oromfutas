@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" maxed>
+    <head>
+        <meta charset="UTF-8" />
+        <!--<link rel="icon" type="image/svg+xml" href="/vite.svg" />-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link id="theme-link" rel="stylesheet" href="/themes/falcon/theme.css" />
+        <title>Falcon</title>
+        <link rel="icon" type="image/x-icon" href="/assets/favicon-B58dzIli.png" />
+      <script type="module" crossorigin src="/assets/index-SjwrgwzT.js"></script>
+      <link rel="modulepreload" crossorigin href="/assets/prop-types-CqkleIqs.js">
+      <link rel="modulepreload" crossorigin href="/assets/react-DNYTDSFN.js">
+      <link rel="modulepreload" crossorigin href="/assets/scheduler-CzFDRTuY.js">
+      <link rel="modulepreload" crossorigin href="/assets/react-dom-CIHLMS0d.js">
+      <link rel="modulepreload" crossorigin href="/assets/@remix-run-C5MR_fTK.js">
+      <link rel="modulepreload" crossorigin href="/assets/react-router-v3tapmLy.js">
+      <link rel="modulepreload" crossorigin href="/assets/react-router-dom-Dmfcm6b0.js">
+      <link rel="modulepreload" crossorigin href="/assets/@babel-DfNrjYUS.js">
+      <link rel="modulepreload" crossorigin href="/assets/dom-helpers-D0mFdbeO.js">
+      <link rel="modulepreload" crossorigin href="/assets/react-transition-group-D_UDP-SR.js">
+      <link rel="modulepreload" crossorigin href="/assets/primereact-LWnq0CD_.js">
+      <link rel="modulepreload" crossorigin href="/assets/lucide-react-Bn3Ar6Rc.js">
+      <link rel="stylesheet" crossorigin href="/assets/index-BXjAmKwe.css">
+    </head>
+    <body>
+        <div id="root"></div>
+        <script>
+            function storeScrollPosition() {
+                // https://css-tricks.com/styling-based-on-scroll-position/
+                // The debounce function receives our function as a parameter
+                const debounce = (fn) => {
+                    // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+                    let frame;
+
+                    // The debounce function returns a new function that can receive a variable number of arguments
+                    return (...params) => {
+                        // If the frame variable has been defined, clear it now, and queue for next frame
+                        if (frame) {
+                            cancelAnimationFrame(frame);
+                        }
+
+                        // Queue our function call for the next frame
+                        frame = requestAnimationFrame(() => {
+                            // Call our function and pass any params we received
+                            fn(...params);
+                        });
+                    };
+                };
+
+                // Reads out the scroll position and stores it in the data attribute
+                // so we can use it in our stylesheets
+                const storeScroll = () => {
+                    if (!window.matchMedia('(max-width: 1200px)').matches) {
+                        document.documentElement.dataset['scroll'] = window.scrollY + '';
+                    } else {
+                        document.documentElement.dataset['scroll'] = '0';
+                    }
+                };
+
+                // Listen for new scroll events, here we debounce our `storeScroll` function
+                document.addEventListener('scroll', debounce(storeScroll), {
+                    passive: true,
+                });
+
+                // Update scroll position for first time
+                storeScroll();
+            }
+            storeScrollPosition();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,373 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+    line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+    scroll-margin-block: 5ex;
+}
+
+/* ------------------------------- */
+
+.poppins-thin {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.poppins-extralight {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.poppins-light {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.poppins-regular {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-medium {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-semibold {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-extrabold {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.poppins-black {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.poppins-thin-italic {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.poppins-extralight-italic {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.poppins-light-italic {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.poppins-regular-italic {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.poppins-medium-italic {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.poppins-semibold-italic {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.poppins-bold-italic {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.poppins-extrabold-italic {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.poppins-black-italic {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* ------------------------------- */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #eef3fa;
+    color: #303030;
+}
+* {
+    scrollbar-width: thin;
+    font: inherit;
+}
+* {
+    transition: top 0.35s cubic-bezier(0.19, 1, 0.22, 1), left 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+        width 0.35s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+        border 0.35s cubic-bezier(0.19, 1, 0.22, 1), transform 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+        opacity 0.35s cubic-bezier(0.19, 1, 0.22, 1), color 0.25s cubic-bezier(0.19, 1, 0.22, 1),
+        background-color 0.65s cubic-bezier(0.19, 1, 0.22, 1), padding 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+        margin 0.35s cubic-bezier(0.19, 1, 0.22, 1) !important;
+}
+a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #13afcc;
+}
+a:hover {
+    box-shadow: 0 2px 0 0 #13afcc;
+}
+b {
+    font-weight: 600;
+}
+.flex {
+    display: flex;
+}
+button {
+    cursor: pointer;
+    border-radius: 100px;
+    border: 0;
+    background-color: transparent;
+}
+button.primary:hover {
+    background-color: #1096ae;
+}
+button:not(.primary):hover {
+    background-color: #13afcc;
+    color: white;
+}
+button.primary {
+    background-color: #13afcc;
+    color: white;
+}
+.hidden {
+    display: none;
+}
+.centered {
+    text-align: center;
+}
+.sub.hero {
+    padding-right: 0;
+}
+.sub {
+    width: 100%;
+    position: relative;
+    display: flex;
+    gap: 28px;
+    padding: 3rem 2.8rem;
+}
+.sub1 {
+    background-color: white;
+}
+.sub1 > div:first-child {
+    width: 60%;
+    padding: 0 28px;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.hero {
+    padding-top: 2.8rem;
+    padding-bottom: 0;
+    align-items: center;
+}
+.hero .welcome {
+    width: 130%;
+    font-size: 1.8rem;
+    padding: 0 4rem 0 7rem;
+    border-radius: 28px;
+    backdrop-filter: blur(4px);
+    white-space: nowrap;
+    font-weight: 300;
+}
+.hero img.big {
+    border-radius: 2.8rem 0 0 0;
+    width: 100%;
+}
+.hero .logo {
+    width: 150px;
+}
+
+.hero .welcome .logobig {
+    width: 25rem;
+    margin-bottom: 3.8rem;
+}
+.hero .welcome .text {
+    margin-bottom: 4.8rem;
+}
+
+.hero .welcome button {
+    padding: 1.8rem 2.5rem;
+    font-weight: 600;
+}
+.longtext {
+    max-width: 700px;
+    font-size: 1.2rem;
+}
+.smallcard {
+    position: relative;
+    background-color: #00000010;
+    border-radius: 1rem;
+    margin: 1rem;
+    width: 13rem;
+    text-align: center;
+    height: 90px;
+    font-weight: 600;
+}
+.smallcard span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-right: 2rem;
+}
+.smallcard::after {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    content: '✔';
+    font-size: 20px;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+}
+.sponsors div {
+    position: relative;
+    width: 12rem;
+    height: 12rem;
+}
+.sponsors div img {
+    transform: translateY(-50%);
+    margin-top: 6rem;
+    filter: grayscale(100%);
+}
+.sponsors div img:hover {
+    filter: none;
+}
+.mapframe {
+    display: inline-block;
+    border-radius: 2rem;
+    border: 4px solid #13afcc;
+    overflow: hidden;
+}
+.mapframe iframe {
+    display: block;
+}
+hr {
+    height: 0;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    border-bottom: 4px solid #13afcc;
+}
