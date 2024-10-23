@@ -12,6 +12,30 @@
         <link rel="stylesheet" href="styles.css" />
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
         <title>Örömfutás Győr</title>
+
+        <script>
+            function nextDate(dayIndex, startHour) {
+                var today = new Date();
+                if (today.getDay() !== dayIndex || today.getHours() > startHour - 1) {
+                    today.setDate(today.getDate() + ((dayIndex - 1 - today.getDay() + 7) % 7) + 1);
+                }
+                today.setHours(startHour, 0, 0);
+                return today.toLocaleString('hu-HU', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    weekday: 'long',
+                    hour: 'numeric',
+                    hour12: false,
+                    minute: '2-digit',
+                });
+            }
+            function scrll(where) {
+                document
+                    .getElementById(where)
+                    .scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+            }
+        </script>
     </head>
     <body>
         <img src="img/oromfutas-logo-wh.svg" class="logo hidden" />
@@ -26,14 +50,12 @@
                 </div>
                 <div>
                     <button class="primary">Belépés</button>
-                    <button>Bővebben...</button>
+                    <button onclick="scrll('bovebben')">Bővebben...</button>
                 </div>
             </div>
-            <div class="image">
-                <img src="img/h2.jpg" class="big" />
-            </div>
+            <div class="image"></div>
         </div>
-        <div class="sub sub1">
+        <div class="sub sub1" id="bovebben">
             <div class="flex">
                 <div class="smallcard"><span>5 km futás</span></div>
                 <div class="smallcard"><span>10 km futás</span></div>
@@ -48,46 +70,62 @@
             <div class="longtext">
                 <p>
                     Az <b>UNI GYŐR ÖRÖMFUTÁS</b> egy rendhagyó formátumú,
-                    <b>minden hétvégén állandó helyszínen és időpontban</b> megrendezett szabadidősport-eseménysorozat
-                    Győrben. A kortól és edzettségi szinttől függetlenül
+                    <b>minden hétvégén <a href="javascript:scrll('helyszin')">állandó helyszínen és időpontban</a></b>
+                    megrendezett szabadidősport-eseménysorozat Győrben. A kortól és edzettségi szinttől függetlenül
                     <b>mindenki számára nyitott és ingyenes</b> rendezvényeken 3 egyéni táv teljesítése közül lehet
                     választani: 5 km futás, 10 km futás vagy 5 km gyaloglás.
+                </p>
+                <p>
+                    A pálya a Püspökerdő és a folyópartok legszebb részein,
+                    <b>különlegesen szép természeti környezetben</b> halad végig.
                 </p>
                 <p>
                     Minden induló <b>online visszajelzést</b> kap az elért eredményéről, a megtett kilométerek
                     gyűjtésével pedig <b>egyedi ajándékok</b> megszerzésére is lehetősége van.
                 </p>
                 <p>
-                    A pálya a Püspökerdő és a folyópartok legszebb részein, <b>különleges természeti környezetben</b>,
-                    forgalommentes útvonalon halad végig.
-                </p>
-                <p>
                     A közcélú kezdeményezés elsődleges szándéka, hogy egy hetente
-                    <b>visszatérő közösségi sporteseménnyel</b> megkönnyítse és ösztönözze a szabadidős mozgás, az
+                    <b>visszatérő közösségi sporteseménnyel</b> megkönnyítse és ösztönözze az
                     <b>aktív életmód állandó beépítését</b> a mindennapokba.
                 </p>
                 <p><b>VERSENYIRODA</b>: <a href="tel:+36-30-226-8170">+36 30 226 8170</a></p>
             </div>
         </div>
-        <hr />
-        <div class="flex" style="width: 100%; align-items: center; background-color: white; padding: 60px 0">
+
+        <div
+            class="flex"
+            style="width: 100%; align-items: center; padding: 60px 0; background-color: #eef3fa"
+            id="helyszin"
+        >
             <div style="width: 60%; font-size: 1.3rem; padding: 0 0 0 12rem">
                 <b>KÖVETKEZŐ RAJT</b><br /><br />
-                2024 okt 19, 9:00<br />Győr, Egyetemi Sportpark, Rusty Kávézó<br />
+                <script>
+                    document.write(nextDate(6, 9));
+                </script>
+                <br />Győr, Egyetemi Sportpark, Rusty Kávézó<br />
                 (Aranypart II., Deák Ferenc sétány)<br />
             </div>
             <div style="width: 50%">
                 <div class="mapframe">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10741.622644005343!2d17.6239639!3d47.6959613!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476b95614a8f5773%3A0x71bd226e02701982!2sUni%20by%20The%20Rusty%20Coffee!5e0!3m2!1sen!2shu!4v1729267368977!5m2!1sen!2shu"
+                        src="https://www.google.com/maps/d/embed?mid=1uFxrd8GzujQxyZdhzKTf7a2buVk4paQ&ehbc=2E312F&noprof=1"
                         width="550"
-                        height="550"
-                        style="border: 0"
-                        allowfullscreen=""
+                        height="600"
+                        style="border: 0; margin: -50px -2px -2px -2px"
+                        allowfullscreen="0"
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
-                    ></iframe>
+                    >
+                    </iframe>
                 </div>
+            </div>
+        </div>
+
+        <div style="padding: 4rem">
+            <div class="centered">
+                <b style="font-size: 1.3rem">UNI GYŐR ÖRÖMFUTÁS - FACEBOOK GROUP</b>
+                <div class="sk-ww-facebook-group-posts" data-embed-id="25479048"></div>
+                <script src="https://widgets.sociablekit.com/facebook-group-posts/widget.js" async defer></script>
             </div>
         </div>
 
