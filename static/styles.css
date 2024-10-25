@@ -206,23 +206,19 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #ffffff;
     color: #303030;
+    font-size: 1.1rem;
+    padding: 2.8rem 2.8rem 0 2.8rem;
 }
 * {
     scrollbar-width: thin;
     font: inherit;
 }
 * {
-    transition:
-        top 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-        left 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-        width 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-        box-shadow 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-        border 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-        transform 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-        opacity 0.35s cubic-bezier(0.19, 1, 0.22, 1),
-        color 0.25s cubic-bezier(0.19, 1, 0.22, 1),
-        background-color 0.65s cubic-bezier(0.19, 1, 0.22, 1),
-        padding 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+    transition: top 0.35s cubic-bezier(0.19, 1, 0.22, 1), left 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+        width 0.35s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+        border 0.35s cubic-bezier(0.19, 1, 0.22, 1), transform 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+        opacity 0.35s cubic-bezier(0.19, 1, 0.22, 1), color 0.25s cubic-bezier(0.19, 1, 0.22, 1),
+        background-color 0.65s cubic-bezier(0.19, 1, 0.22, 1), padding 0.35s cubic-bezier(0.19, 1, 0.22, 1),
         margin 0.35s cubic-bezier(0.19, 1, 0.22, 1) !important;
 }
 a {
@@ -243,6 +239,7 @@ button {
     cursor: pointer;
     border-radius: 100px;
     border: 0;
+    color: #13afcc;
     background-color: transparent;
 }
 button.primary:hover {
@@ -272,8 +269,21 @@ button.primary {
     gap: 28px;
     padding: 4rem 3.8rem 5rem 2.8rem;
 }
+
+@media (max-width: 900px) {
+    .sub {
+        flex-wrap: wrap;
+    }
+    .sub > div {
+        width: 100%;
+    }
+}
+
 .sub1 {
     background-color: white;
+}
+.sub1 > div {
+    width: 40%;
 }
 .sub1 > div:first-child {
     width: 60%;
@@ -281,14 +291,29 @@ button.primary {
     flex-wrap: wrap;
     align-content: center;
 }
+.sub2 {
+    background-color: #eef3fa;
+    margin: 0 -2.8rem;
+    width: calc(100% + 5.6rem);
+}
+.sub2 > div {
+    width: 40%;
+}
+.sub2 > div:first-child {
+    width: 60%;
+    padding: 0 28px;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.sub > div:only-child {
+    width: 100%;
+}
 .hero {
     padding: 0;
     align-items: center;
     gap: 0;
     align-items: stretch;
-    margin: 2.8rem 0 0 2.8rem;
     border-radius: 2.8rem;
-    width: calc(100% - 5.6rem);
     background-color: #d8f4fb;
     overflow: hidden;
     justify-content: center;
@@ -307,20 +332,22 @@ button.primary {
     padding: 3rem 5rem 4rem 5rem;
 }
 .hero .image {
-    width: 65%;
+    width: 100%;
     height: 600px;
-    background-image: url(img/h2.jpg);
+    min-height: 60vh;
+    background-image: url(img/rajt2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     align-self: stretch;
+    flex-grow: 1;
 }
 .hero .logo {
     width: 150px;
 }
 
 .hero .welcome .logobig {
-    width: 22rem;
+    width: 100%;
     margin-bottom: 2.2rem;
 }
 .hero .welcome .text {
@@ -334,7 +361,6 @@ button.primary {
 }
 .longtext {
     max-width: 700px;
-    font-size: 1.2rem;
 }
 .smallcard {
     position: relative;
@@ -398,6 +424,7 @@ button.primary {
     position: relative;
     width: 12rem;
     height: 12rem;
+    margin: 0 4px;
 }
 .sponsors div img {
     transform: translateY(-50%);
@@ -449,4 +476,10 @@ button.sk-facebook-feed-load-more-posts {
     background-color: #eef3fa !important;
     border-radius: 28px !important;
     padding: 20px 20px 30px 20px !important;
+}
+h3 {
+    display: inline-block;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
 }
