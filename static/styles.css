@@ -218,6 +218,7 @@ body {
     transition:
         top 0.35s cubic-bezier(0.19, 1, 0.22, 1),
         left 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+        outline 0.35s cubic-bezier(0.19, 1, 0.22, 1),
         width 0.35s cubic-bezier(0.19, 1, 0.22, 1),
         box-shadow 0.35s cubic-bezier(0.19, 1, 0.22, 1),
         border 0.35s cubic-bezier(0.19, 1, 0.22, 1),
@@ -228,8 +229,73 @@ body {
         padding 0.35s cubic-bezier(0.19, 1, 0.22, 1),
         margin 0.35s cubic-bezier(0.19, 1, 0.22, 1) !important;
 }
+input:not([type='radio']):not([type='checkbox']) {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 0;
+    font-size: 15px;
+    height: 46px;
+    width: 300px;
+    outline: 2px solid transparent;
+}
+label {
+    cursor: pointer;
+    font-size: 15px;
+}
+input[type='radio'] {
+    margin-right: 6px;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 4px;
+}
+
+input[type='date'] {
+    position: relative;
+    padding-left: 120px !important;
+}
+
+input[type='date']:before {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: gray;
+    content: attr(placeholder2) !important;
+    margin-right: 0.5em;
+}
+input[type='date']:focus:before {
+    /* content: '' !important; */
+}
+input:not([type='radio']):not([type='checkbox']):focus {
+    outline: 2px solid #13afcc;
+}
+input[type='radio'],
+input[type='checkbox'] {
+    accent-color: #13afcc;
+    background-color: white;
+}
+
+input[type='radio'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    padding: 3px;
+    border: 2px solid #909090;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+input[type='radio']:checked {
+    background-clip: content-box;
+    background-color: #13afcc;
+    border-color: #13afcc;
+}
+
 a,
 a.href_status_trigger_post {
+    cursor: pointer;
     text-decoration: none;
     font-weight: 600;
     color: #13afcc !important;
@@ -244,11 +310,13 @@ b {
     display: flex;
 }
 button {
+    font-weight: 600;
     cursor: pointer;
     border-radius: 100px;
     border: 0;
     color: #13afcc;
     background-color: transparent;
+    padding: 14px 24px;
 }
 button.primary:hover {
     background-color: #1096ae;
@@ -260,6 +328,27 @@ button:not(.primary):hover {
 button.primary {
     background-color: #13afcc;
     color: white;
+}
+.loginformouter {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #ffffffa0;
+    backdrop-filter: blur(8px);
+}
+.loginform {
+    background-color: #e3f7fca0;
+    backdrop-filter: blur(16px);
+    padding: 28px;
+    border-radius: 28px;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .hidden {
     display: none;
@@ -313,7 +402,6 @@ button.primary {
 }
 .hero {
     padding: 0;
-    align-items: center;
     gap: 0;
     align-items: stretch;
     border-radius: 2.8rem;
@@ -328,7 +416,7 @@ button.primary {
     background-repeat: no-repeat;
 }
 .hero .welcome {
-    display: inline-block;
+    text-align: center;
     font-size: 1.7rem;
     white-space: nowrap;
     font-weight: 300;
@@ -345,6 +433,7 @@ button.primary {
     background-position: center center;
     align-self: stretch;
     flex-grow: 1;
+    position: relative;
 }
 .hero .logo {
     width: 150px;
@@ -361,7 +450,6 @@ button.primary {
 
 .hero .welcome button {
     padding: 1.5rem 2.1rem;
-    font-weight: 600;
     font-size: 1.4rem;
 }
 .longtext {
@@ -517,6 +605,14 @@ img.fb {
     left: -34px;
     top: -2px;
 }
+@media (max-width: 1100px) {
+    .sub.hero {
+        flex-wrap: wrap;
+    }
+    .sub.hero > div {
+        width: 100%;
+    }
+}
 
 @media (max-width: 900px) {
     body {
@@ -529,12 +625,12 @@ img.fb {
     .sub2 {
         margin: 0 -1rem;
     }
-    .sub > div,
-    .sub > div:first-child {
+    .sub > div:not(.welcome),
+    .sub > div:first-child:not(.welcome) {
         width: 100%;
     }
-    .sub2 > div:first-child {
-        padding: 0 16px;
+    .sub2 > div {
+        padding: 0 16px !important;
     }
     .sub.hero {
         padding: 0;
@@ -543,8 +639,8 @@ img.fb {
         background-position: 80% 0%;
     }
     .sub.hero .image {
-        height: 300px;
-        min-height: 0;
+        height: 500px;
+        min-height: 500;
     }
     .sub.hero .welcome {
         padding: 3rem 2rem 4rem 2rem;
@@ -562,7 +658,7 @@ img.fb {
     }
     .sub1 > div.smallcards {
         padding: 0;
-        margin: 0 -40px;
+        /* margin: 0 -40px; */
         width: auto;
     }
     .smallcard {

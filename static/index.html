@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -35,25 +35,85 @@
                     .getElementById(where)
                     .scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
             }
+            function showHideElement(elemnt) {
+                var elem = document.getElementById(elemnt);
+                elem.style.opacity = 0;
+                elem.style.display = elem.style.display === 'none' ? '' : 'none';
+                if (elem.style.display !== 'none') {
+                    setTimeout(() => {
+                        elem.style.opacity = 1;
+                    }, 100);
+                }
+            }
         </script>
     </head>
     <body>
         <img src="img/oromfutas-logo-wh.svg" class="logo hidden" />
         <div class="hero sub">
             <div class="welcome">
-                <img src="img/oromfutas-logo.svg" class="logobig" />
-                <div class="text">
-                    közösségi <b>futás és gyaloglás</b><br />
-                    minden <b>szombaton</b>,<br />
-                    minden korosztálynak,<br />
-                    ingyenesen, <b>Győrben</b>
-                </div>
-                <div>
-                    <button class="primary">Belépés</button>
-                    <button onclick="scrll('bovebben')">Bővebben...</button>
+                <div style="display: inline-block; text-align: left">
+                    <img src="img/oromfutas-logo.svg" class="logobig" />
+                    <div class="text">
+                        közösségi <b>futás és gyaloglás</b><br />
+                        minden <b>szombaton</b>,<br />
+                        minden korosztálynak,<br />
+                        ingyenesen, <b>Győrben</b>
+                    </div>
+                    <div>
+                        <button
+                            class="primary"
+                            onclick="showHideElement('alllogin'); window.innerWidth < 1101 ? scrll('alllogin') : null"
+                        >
+                            Belépés
+                        </button>
+                        <button onclick="scrll('bovebben')">Bővebben...</button>
+                    </div>
                 </div>
             </div>
-            <div class="image"></div>
+            <div class="image" id="loginarea">
+                <div class="loginformouter" id="alllogin" style="display: none">
+                    <div class="loginform center" id="thelogin">
+                        <input type="email" name="email" placeholder="email" /><br />
+                        <input type="password" name="pw" placeholder="jelszó" /><br />
+                        <button class="primary">Mehet</button>&nbsp;<button onclick="showHideElement('alllogin')">
+                            Mégse
+                        </button>
+                        <br />
+                        <br />
+                        <a onclick="showHideElement('thelogin'); showHideElement('forgot')">&bull; Elfelejtett jelszó</a
+                        ><br />
+                        <a onclick="showHideElement('thelogin'); showHideElement('thereg')">&bull; Regisztráció</a>
+                    </div>
+                    <div class="loginform center" id="forgot" style="max-width: 430px; display: none">
+                        <input type="email" name="email" placeholder="email" /><br />
+                        <button class="primary">Mehet</button>&nbsp;<button
+                            onclick="showHideElement('forgot'); showHideElement('thelogin')"
+                        >
+                            Mégse
+                        </button>
+                        <br />
+                        <br />
+                        Add meg a regisztrált email címedet, küldünk egy linket a jelszóváltoztatáshoz.
+                    </div>
+                    <div class="loginform center" id="thereg" style="display: none">
+                        <input type="text" name="lastname" placeholder="Vezetéknév" /><br />
+                        <input type="text" name="firstname" placeholder="Keresztnév" /><br />
+                        <input type="email" name="email" placeholder="Email" /><br />
+                        <input type="tel" name="telefon" placeholder="Telefonszám" /><br />
+                        <input type="date" name="birthdate" placeholder2="Születési idő:" /><br />
+                        <label><input type="radio" value="ferfi" name="neme" /><span>Férfi</span></label
+                        >&nbsp;&nbsp;&nbsp; <label><input type="radio" value="no" name="neme" /><span>Nő</span></label
+                        >&nbsp;&nbsp;&nbsp;
+                        <label><input type="radio" value="nembinaris" name="neme" /><span>Nembináris</span></label
+                        ><br /><br />
+                        <button class="primary">Mehet</button>&nbsp;<button
+                            onclick="showHideElement('thereg'); showHideElement('thelogin')"
+                        >
+                            Mégse
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="sub sub1" id="bovebben">
             <div class="flex smallcards">
@@ -75,32 +135,38 @@
                     <b>mindenki számára nyitott és ingyenes</b> rendezvényeken 3 egyéni táv teljesítése közül lehet
                     választani: 5 km futás, 10 km futás vagy 5 km gyaloglás.
                 </p>
+
                 <p>
                     A pálya a Püspökerdő és a folyópartok legszebb részein,
                     <b>különlegesen szép természeti környezetben</b> halad végig.
                 </p>
+
                 <p>
                     Minden induló <b>online visszajelzést</b> kap az elért eredményéről, a megtett kilométerek
                     gyűjtésével pedig <b>egyedi ajándékok</b> megszerzésére is lehetősége van.
                 </p>
+
                 <p>
                     A közcélú kezdeményezés elsődleges célja, hogy egy hetente
                     <b>visszatérő közösségi sporteseménnyel</b> megkönnyítse és ösztönözze az
                     <b>aktív életmód állandó beépítését</b> a mindennapokba.
                 </p>
-                <p><h3>VERSENYIRODA</h3>: <a href="tel:+36-30-226-8170">+36 30 226 8170</a></p>
+
+                <h3 style="margin-top: 28px">VERSENYIRODA</h3>
+                : <a href="tel:+36-30-226-8170">+36 30 226 8170</a>
             </div>
         </div>
 
         <div class="sub sub2" id="helyszin">
             <div style="text-align: center">
                 <div style="display: inline-block; text-align: left">
-                    <h3>KÖVETKEZŐ RAJT</h3><br /><br />
+                    <h3>KÖVETKEZŐ RAJT</h3>
+                    <br /><br />
                     <script>
                         document.write(nextDate(6, 9));
                     </script>
-                    <br />Győr, Egyetemi Sportpark, <span style="white-space: nowrap;">Rusty Kávézó</span><br />
-                    (Aranypart II., Deák Ferenc stny)
+                    <br />Győr, Egyetemi Sportpark, <span style="white-space: nowrap">Rusty Kávézó</span><br />
+                    (Aranypart II., Deák Ferenc sétány)
                 </div>
             </div>
             <div>
@@ -121,7 +187,11 @@
 
         <div class="facebookon">
             <div class="centered">
-                <h3><a href="https://www.facebook.com/groups/www.oromfutasgyor.hu" class="relative"><img src="img/facebook-logo.svg" class="fb"> / ÖRÖMFUTÁS - GYŐR</a></h3>
+                <h3>
+                    <a href="https://www.facebook.com/groups/www.oromfutasgyor.hu" class="relative"
+                        ><img src="img/facebook-logo.svg" class="fb" /> / ÖRÖMFUTÁS - GYŐR</a
+                    >
+                </h3>
                 <div class="sk-ww-facebook-group-posts" data-embed-id="25479048"></div>
                 <script src="https://widgets.sociablekit.com/facebook-group-posts/widget.js" async defer></script>
             </div>
