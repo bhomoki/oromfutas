@@ -238,6 +238,7 @@ input:not([type='radio']):not([type='checkbox']) {
     height: 46px;
     width: 300px;
     outline: 2px solid transparent;
+    background-color: white;
 }
 label {
     cursor: pointer;
@@ -258,8 +259,9 @@ input[type='date'] {
 
 input[type='date']:before {
     position: absolute;
-    top: 16px;
+    top: 0;
     left: 16px;
+    line-height: 46px;
     color: gray;
     content: attr(placeholder2) !important;
     margin-right: 0.5em;
