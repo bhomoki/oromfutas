@@ -60,8 +60,8 @@ h4 {
 /* Make images easier to work with */
 img,
 picture {
-    max-width: 100%;
-    display: block;
+    /* max-width: 100%;
+    display: block; */
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -209,6 +209,9 @@ body {
     font-size: 1.1rem;
     padding: 2.8rem 2.8rem 0 2.8rem;
     -webkit-tap-highlight-color: transparent;
+}
+strong {
+    font-weight: 700 !important;
 }
 * {
     scrollbar-width: thin;
