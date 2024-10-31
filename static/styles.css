@@ -587,6 +587,36 @@ button.sk-facebook-feed-load-more-posts {
 .post-content iframe {
     border-radius: 12px;
 }
+.post-content iframe {
+    width: 100%;
+    aspect-ratio: 16 / 12;
+}
+body .sk-ww-facebook-group-posts .sk-post-text {
+    max-height: 400px !important;
+    overflow: auto !important;
+    margin-bottom: 20px !important;
+}
+body .sk-ww-facebook-group-posts .facebook-feed-user-root-container {
+    display: none;
+}
+.sk-facebook-feed-bottom-btn-container,
+body .grid-facebook-feed .fb-group-post:nth-child(7),
+body .grid-facebook-feed .fb-group-post:nth-child(8),
+body .grid-facebook-feed .fb-group-post:nth-child(9),
+body .grid-facebook-feed .fb-group-post:nth-child(10),
+body .grid-facebook-feed .fb-group-post:nth-child(11),
+body .grid-facebook-feed .fb-group-post:nth-child(12),
+body .grid-facebook-feed .fb-group-post:nth-child(13),
+body .grid-facebook-feed .fb-group-post:nth-child(14),
+body .grid-facebook-feed .fb-group-post:nth-child(15),
+body .grid-facebook-feed .fb-group-post:nth-child(16),
+body .grid-facebook-feed .fb-group-post:nth-child(17),
+body .grid-facebook-feed .fb-group-post:nth-child(18),
+body .grid-facebook-feed .fb-group-post:nth-child(19),
+body .grid-facebook-feed .fb-group-post:nth-child(20),
+body .grid-facebook-feed .fb-group-post:nth-child(21) {
+    display: none !important;
+}
 h3 {
     display: inline-block;
     margin: 0;
