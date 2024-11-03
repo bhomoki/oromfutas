@@ -14,6 +14,29 @@
         <title>Örömfutás Győr</title>
 
         <script>
+            function reset() {
+                document.getElementById('alllogin').style.display = 'none';
+            }
+            window.addEventListener('hashchange', hashChanged);
+            let section = null;
+            function hashChanged() {
+                if (section) {
+                    section.style.opacity = 0;
+                    section.style.display = 'none';
+                }
+                let urlParam = window.location.hash;
+                section = document.getElementById(urlParam?.replace('#', '').replace('.', ''));
+                if (!section) {
+                    reset();
+                    return;
+                }
+                document.getElementById('alllogin').style.display = '';
+                if (window.innerWidth < 1101) scrll('loginarea');
+                setTimeout(() => {
+                    section.style.display = '';
+                    section.style.opacity = 1;
+                }, 100);
+            }
             function nextDate(dayIndex, startHour) {
                 var today = new Date();
                 if (today.getDay() !== dayIndex || today.getHours() > startHour - 1) {
@@ -31,11 +54,19 @@
                 });
             }
             function scrll(where) {
-                document
-                    .getElementById(where)
-                    .scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+                whereTo = document.getElementById(where);
+                if (whereTo) {
+                    whereTo.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+                }
             }
-            function showHideElement(elemnt) {
+            function showElement(elemnt) {
+                if (elemnt == '') {
+                    window.location.hash = '';
+                    return;
+                }
+                window.location.hash = elemnt + '.';
+                /*
+                // location.href = '#' + elemnt;
                 var elem = document.getElementById(elemnt);
                 elem.style.opacity = 0;
                 elem.style.display = elem.style.display === 'none' ? '' : 'none';
@@ -43,7 +74,9 @@
                     setTimeout(() => {
                         elem.style.opacity = 1;
                     }, 100);
+                    location.href = '#' + elemnt;
                 }
+                */
             }
         </script>
     </head>
@@ -60,35 +93,25 @@
                         ingyenesen, <b>Győrben</b>
                     </div>
                     <div>
-                        <button
-                            class="primary"
-                            onclick="showHideElement('alllogin'); window.innerWidth < 1101 ? scrll('alllogin') : null"
-                        >
-                            Belépés
-                        </button>
+                        <button class="primary" onclick="showElement('thelogin')">Belépés</button>
                         <button onclick="scrll('bovebben')">Bővebben...</button>
                     </div>
                 </div>
             </div>
             <div class="image" id="loginarea">
                 <div class="loginformouter" id="alllogin" style="display: none">
-                    <div class="loginform center" id="thelogin">
+                    <div class="loginform center" id="thelogin" style="display: none">
                         <input type="email" name="email" placeholder="email" /><br />
                         <input type="password" name="pw" placeholder="jelszó" /><br />
-                        <button class="primary">Mehet</button>&nbsp;<button onclick="showHideElement('alllogin')">
-                            Mégse
-                        </button>
+                        <button class="primary">Mehet</button>&nbsp;<button onclick="showElement('')">Mégse</button>
                         <br />
                         <br />
-                        <a onclick="showHideElement('thelogin'); showHideElement('forgot')">&bull; Elfelejtett jelszó</a
-                        ><br />
-                        <a onclick="showHideElement('thelogin'); showHideElement('thereg')">&bull; Regisztráció</a>
+                        <a onclick="showElement('forgot')">&bull; Elfelejtett jelszó</a><br />
+                        <a onclick="showElement('thereg')">&bull; Regisztráció</a>
                     </div>
                     <div class="loginform center" id="forgot" style="max-width: 430px; display: none">
                         <input type="email" name="email" placeholder="email" /><br />
-                        <button class="primary">Mehet</button>&nbsp;<button
-                            onclick="showHideElement('forgot'); showHideElement('thelogin')"
-                        >
+                        <button class="primary">Mehet</button>&nbsp;<button onclick="showElement('thelogin');">
                             Mégse
                         </button>
                         <br />
@@ -106,9 +129,7 @@
                         >&nbsp;&nbsp;&nbsp;
                         <label><input type="radio" value="nembinaris" name="neme" /><span>Nembináris</span></label
                         ><br /><br />
-                        <button class="primary">Mehet</button>&nbsp;<button
-                            onclick="showHideElement('thereg'); showHideElement('thelogin')"
-                        >
+                        <button class="primary">Mehet</button>&nbsp;<button onclick="showElement('thelogin')">
                             Mégse
                         </button>
                     </div>
@@ -210,5 +231,10 @@
                 </div>
             </div>
         </div>
+        <script>
+            if (window.location.hash?.length > 0) {
+                hashChanged();
+            }
+        </script>
     </body>
 </html>
